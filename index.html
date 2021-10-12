@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id='titulo'>d</title>
+</head>
+<body onload="updateTitle()">
+    <h1>Atualiza Título</h1>
+    <h2 >Título atual: <b id='info'>asasa</b></h2>
+    
+    <form onsubmit="categoriaJogador()">
+        <label for="fname">Nome Jogador:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="lname">Idade::</label>
+        <input type="text" id="age" name="age"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+<script>
+    var cargo = "Programador";
+var retorno = cargo == "Programador" ? "Ótima Profissão" : "Aprenda a Programar";
+
+console.log(retorno);
+    var count = 1;
+    function setTitle() {
+    //Captura os segundos e verifica se ele apresenta apenas um dígito / Se true, adiciona um 0 para formatação.
+    let getSeconds = new Date().getSeconds().toString().length == 1 ? `0${new Date().getSeconds()}` : new Date().getSeconds()
+    
+    //Captura a hora/minutos e Formata a data.  
+    let getTime = `${new Date().getHours()}:${new Date().getMinutes()}:${getSeconds}`
+
+    //Injeta os dados no HTML 
+    document.getElementById("titulo").innerHTML = `${count}º Título - ${getTime}`;
+    document.getElementById("info").innerHTML = `${count}º Título - ${getTime}`;
+    count++
+    
+    }
+    function updateTitle(){
+        setTitle()
+        setTimeout(updateTitle, 5000)
+    }
+    function categoriaJogador(){
+        var playerName = document.getElementById('name');
+        var playerAge = document.getElementById('age');
+        alert(`${playerAge.value}: ${playerName.value}`)
+
+    }
+    </script> 
+</html>
