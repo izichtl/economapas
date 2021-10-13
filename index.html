@@ -4,48 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id='titulo'>d</title>
+    <link rel="stylesheet" type="text/css" href="./indexTitle.css">
+    <title id='titulo'></title>
+    <style>
+      </style>
 </head>
 <body onload="updateTitle()">
-    <h1>Atualiza Título</h1>
-    <h2 >Título atual: <b id='info'>asasa</b></h2>
-    
-    <form onsubmit="categoriaJogador()">
-        <label for="fname">Nome Jogador:</label>
-        <input type="text" id="name" name="name"><br><br>
-        <label for="lname">Idade::</label>
-        <input type="text" id="age" name="age"><br><br>
-        <input type="submit" value="Submit">
-    </form>
+    <div class="container">
+        <div>
+            <h1>Atualiza Título</h1>    
+            <h2 id='info'></h2>
+        </div>
+    </div>
 </body>
 <script>
-    var cargo = "Programador";
-var retorno = cargo == "Programador" ? "Ótima Profissão" : "Aprenda a Programar";
-
-console.log(retorno);
     var count = 1;
+
+    //função responsável por obter as horas e atualizar o título. 
     function setTitle() {
     //Captura os segundos e verifica se ele apresenta apenas um dígito / Se true, adiciona um 0 para formatação.
     let getSeconds = new Date().getSeconds().toString().length == 1 ? `0${new Date().getSeconds()}` : new Date().getSeconds()
     
+    //Captura os minutos e verifica se ele apresenta apenas um dígito / Se true, adiciona um 0 para formatação.
+    let getMinutes = new Date().getMinutes().toString().length == 1 ? `0${new Date().getMinutes()}` : new Date().getMinutes()
+
+    //Captura as horas e verifica se ele apresenta apenas um dígito / Se true, adiciona um 0 para formatação.
+    let getHours = new Date().getHours().toString().length == 1 ? `0${new Date().getHours()}` : new Date().getHours()
+    
     //Captura a hora/minutos e Formata a data.  
-    let getTime = `${new Date().getHours()}:${new Date().getMinutes()}:${getSeconds}`
+    let getTime = `${getHours}:${getMinutes}:${getSeconds}`
 
     //Injeta os dados no HTML 
     document.getElementById("titulo").innerHTML = `${count}º Título - ${getTime}`;
     document.getElementById("info").innerHTML = `${count}º Título - ${getTime}`;
     count++
-    
     }
+
+    //função responsável por chamar a atualização do títutlo, aguardar os segundos necessários e invocar novamente a atualização do título. 
     function updateTitle(){
         setTitle()
         setTimeout(updateTitle, 5000)
-    }
-    function categoriaJogador(){
-        var playerName = document.getElementById('name');
-        var playerAge = document.getElementById('age');
-        alert(`${playerAge.value}: ${playerName.value}`)
-
     }
     </script> 
 </html>

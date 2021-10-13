@@ -36,7 +36,7 @@ console.log('Execução Unitária / Resposta:')
 console.log(categoryPlayer(playerName, playerAge))
 console.log('  ')
 
-//Execução em fita para teste de classificação.
+//Execução em fita para teste do algoritimo.
 console.log('Teste de execução / Respostas:')
 playerArray.forEach(jogador => {
     console.log(categoryPlayer(jogador[0], jogador[1]))
