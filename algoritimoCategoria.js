@@ -11,7 +11,13 @@ let playerName = 'Ivan';
 let playerAge  = 18;
 
 //Declaração de array de jogadores para teste do algoritimo.
-let playerArray = [['Ivan', 3], ['Bruno', 9], ['Diego', 10], ['Thiago', 14], ['Lucas', 15], ['Mario', 18], ['José', 19], ['Ian', 30], ['João', 2], ['Pedro', 31]]
+let playerArray = [
+    ['Ivan', 3, "Chupeta"], 
+    ['Diego', 10, "Junior"],  
+    ['Lucas', 15, "Amador"], 
+    ['Ian', 30, "Pro"],  
+    ['Pedro', 31, "Não Existe"]
+]
 
 //Declaração do algoritimo. 
 const categoryPlayer = (playerName, playerAge) => {
@@ -40,6 +46,8 @@ console.log('  ')
 console.log('Teste de execução / Respostas:')
 playerArray.forEach(jogador => {
     console.log(categoryPlayer(jogador[0], jogador[1]))
+    console.log(`Categoria Esperada: > ${jogador[2]}`)
+    console.log('')
 })
 
 
